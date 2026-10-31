@@ -19,7 +19,7 @@ paths = setup_environment()          # Colab 이면 Drive 마운트 후 폴더 �
 img.save(paths.screenshots / "step_001.png")
 ```
 
-> 저장소가 비공개라면 노트북의 설치 셀 주석처럼 Colab '보안 비밀'에 `GITHUB_TOKEN` 을 저장해 사용하세요.
+> 공개 저장소이므로 설치에 토큰이 필요 없습니다. 재현성을 위해 `...git@<태그 또는 커밋>` 으로 버전을 고정할 수 있습니다.
 
 ## 저장 위치
 
@@ -42,6 +42,15 @@ img.save(paths.screenshots / "step_001.png")
 
 Colab 에는 물리 디스플레이가 없습니다. GUI 앱을 띄워야 하면
 `setup_environment(install_headless_display=True)` 로 Xvfb 가상 디스플레이를 시작하세요.
+
+## 민감정보 취급
+
+이 저장소는 공개이므로 비밀 값을 커밋하지 마세요.
+
+- API 키·토큰은 코드/노트북에 직접 쓰지 말고 Colab 왼쪽 '보안 비밀'(🔑)에 저장한 뒤 `google.colab.userdata.get("NAME")` 으로 읽으세요.
+- 노트북은 커밋 전에 셀 출력을 지우세요 (출력에 Drive 이메일·경로·키가 남을 수 있습니다).
+- 스크린샷에 개인정보가 찍힐 수 있으니 Drive 의 `Vision-based_GUI_Controller/` 폴더를 공개 공유하지 마세요.
+- `.env`, 키/인증서, 체크포인트 파일은 `.gitignore` 로 제외되어 있습니다.
 
 ## 로컬 개발
 
